@@ -1,0 +1,1 @@
+prompt("Quantas cartas quer jogar?");
