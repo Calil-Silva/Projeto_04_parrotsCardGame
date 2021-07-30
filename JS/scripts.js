@@ -14,8 +14,6 @@ while (qtdCartas < 4 || qtdCartas > 14 || qtdCartas % 2 !== 0) {
 }
 
 function darCartas() {
-
-
     let cartas = ["bobrossparrot", "explodyparrot", "fiestaparrot", "metalparrot", "revertitparrot", "tripletsparrot", "unicornparrot"];
     cartas.sort(comparador);
 
@@ -44,22 +42,6 @@ function darCartas() {
 
 darCartas();
 
-// function numCartas() {
-
-//     let display = document.querySelector(".lista");
-//     if (qtdCartas === 8) {
-//         display.classList.add("oitoCartas");
-//     } else if (qtdCartas === 10) {
-//         display.classList.add("dezCartas");
-//     } else if (qtdCartas === 12) {
-//         display.classList.add("dozeCartas");
-//     } else if (qtdCartas === 14) {
-//         display.classList.add("quatorzeCartas");
-//     }
-// }
-
-// numCartas();
-
 let myArray = [];
 let backFace;
 let frontFace;
@@ -83,6 +65,41 @@ function virarCarta(elemento) {
 
     setTimeout(desvirarCartas, 1000);
     cartasIguais();
+}
+
+function desvirarCartas() {
+    if (alter.length === 2) {
+        if (alter[1] === alter[0] && myArray[1] !== myArray[0]) {
+            alter = [];
+            myArray = [];
+            i = 0;
+        } else if (alter[1] !== alter[0] || myArray[1] === myArray[0]) {
+            backFaceFirst = myArray[0].querySelector(".back-face");
+            frontFaceFirst = myArray[0].querySelector(".front-face");
+
+            backFaceFirst.classList.remove("showFront");
+            frontFaceFirst.classList.remove("hideBack");
+            backFace.classList.remove("showFront");
+            frontFace.classList.remove("hideBack");
+            alter = [];
+            myArray = [];
+            i = 0;
+        }
+    }
+}
+
+function cartasIguais() {
+    if (alter.length === 2) {
+        if (myArray[1] === myArray[0]) {
+            backFaceFirst.classList.remove("showFront");
+            frontFaceFirst.classList.remove("hideBack");
+            backFace.classList.remove("showFront");
+            frontFace.classList.remove("hideBack");
+            alter = [];
+            myArray = [];
+            i = 0;
+        }
+    }
 }
 
 
