@@ -60,7 +60,7 @@ img {
     transform: rotateY(-180deg);
 }
 
-.organizacao {
+.display {
     display: flex;
     margin-top: 70px;
     height: 25vh;

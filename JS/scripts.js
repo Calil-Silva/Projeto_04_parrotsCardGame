@@ -7,7 +7,7 @@ function comparador() {
     return Math.random() - 0.5;
 }
 
-let teste = [];
+let imgs = [];
 
 while (qtdCartas < 4 || qtdCartas > 14 || qtdCartas % 2 !== 0) {
     qtdCartas = Number(prompt("Quantas cartas quer jogar?"));
@@ -17,22 +17,19 @@ function darCartas() {
     let cartas = ["bobrossparrot", "explodyparrot", "fiestaparrot", "metalparrot", "revertitparrot", "tripletsparrot", "unicornparrot"];
     cartas.sort(comparador);
 
-    let baralho = document.querySelector("div");
+    let baralho = document.querySelector(".display");
 
     while (i < (qtdCartas / 2)) {
-
-        teste.push(`<img src="../files/${cartas[i]}.gif" alt="${cartas[i]}">`);
-        teste.push(`<img src="../files/${cartas[i]}.gif" alt="${cartas[i]}">`);
+        imgs.push(`<img src="../files/${cartas[i]}.gif" alt="${cartas[i]}">`);
+        imgs.push(`<img src="../files/${cartas[i]}.gif" alt="${cartas[i]}">`);
 
         i++;
-
     }
 
-    teste.sort(comparador);
+    imgs.sort(comparador);
 
-    while (index < teste.length) {
-
-        addCartas += `<ul class="lista" onclick="virarCarta(this)"><li class="back-face face">${teste[index]}</li><li class="front-face face"><img src="../files/front.png"></li></ul>`;
+    while (index < imgs.length) {
+        addCartas += `<ul class="lista" onclick="virarCarta(this)"><li class="back-face face">${imgs[index]}</li><li class="front-face face"><img src="../files/front.png"></li></ul>`;
 
         baralho.innerHTML = addCartas;
 
