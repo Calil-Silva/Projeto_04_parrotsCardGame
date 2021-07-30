@@ -2,6 +2,7 @@ let qtdCartas = Number(prompt("Quantas cartas quer jogar?"));
 let i = 0;
 let index = 0;
 let addCartas = "";
+let addCartas2 = "";
 
 function comparador() {
     return Math.random() - 0.5;
@@ -18,6 +19,7 @@ function darCartas() {
     cartas.sort(comparador);
 
     let baralho = document.querySelector(".display");
+    let baralho2 = document.querySelector(".display2");
 
     while (i < (qtdCartas / 2)) {
         imgs.push(`<img src="../files/${cartas[i]}.gif" alt="${cartas[i]}">`);
@@ -29,9 +31,61 @@ function darCartas() {
     imgs.sort(comparador);
 
     while (index < imgs.length) {
-        addCartas += `<ul class="lista" onclick="virarCarta(this)"><li class="back-face face">${imgs[index]}</li><li class="front-face face"><img src="../files/front.png"></li></ul>`;
 
-        baralho.innerHTML = addCartas;
+        if (qtdCartas === 4) {
+            addCartas += `<ul class="lista" onclick="virarCarta(this)"><li class="back-face face">${imgs[index]}</li><li class="front-face face"><img src="../files/front.png"></li></ul>`;
+            baralho.innerHTML = addCartas;
+        }
+
+        if (qtdCartas === 6) {
+            if (index % 2 === 0) {
+                addCartas += `<ul class="lista" onclick="virarCarta(this)"><li class="back-face face">${imgs[index]}</li><li class="front-face face"><img src="../files/front.png"></li></ul>`;
+                baralho.innerHTML = addCartas;
+            } else if (index % 2 !== 0) {
+                addCartas2 += `<ul class="lista" onclick="virarCarta(this)"><li class="back-face face">${imgs[index]}</li><li class="front-face face"><img src="../files/front.png"></li></ul>`;
+                baralho2.innerHTML = addCartas2;
+            }
+        }
+
+        if (qtdCartas === 8) {
+            if (index % 2 === 0) {
+                addCartas += `<ul class="lista" onclick="virarCarta(this)"><li class="back-face face">${imgs[index]}</li><li class="front-face face"><img src="../files/front.png"></li></ul>`;
+                baralho.innerHTML = addCartas;
+            } else if (index % 2 !== 0) {
+                addCartas2 += `<ul class="lista" onclick="virarCarta(this)"><li class="back-face face">${imgs[index]}</li><li class="front-face face"><img src="../files/front.png"></li></ul>`;
+                baralho2.innerHTML = addCartas2;
+            }
+        }
+
+        if (qtdCartas === 10) {
+            if (index % 2 === 0) {
+                addCartas += `<ul class="lista" onclick="virarCarta(this)"><li class="back-face face">${imgs[index]}</li><li class="front-face face"><img src="../files/front.png"></li></ul>`;
+                baralho.innerHTML = addCartas;
+            } else if (index % 2 !== 0) {
+                addCartas2 += `<ul class="lista" onclick="virarCarta(this)"><li class="back-face face">${imgs[index]}</li><li class="front-face face"><img src="../files/front.png"></li></ul>`;
+                baralho2.innerHTML = addCartas2;
+            }
+        }
+
+        if (qtdCartas === 12) {
+            if (index % 2 === 0) {
+                addCartas += `<ul class="lista" onclick="virarCarta(this)"><li class="back-face face">${imgs[index]}</li><li class="front-face face"><img src="../files/front.png"></li></ul>`;
+                baralho.innerHTML = addCartas;
+            } else if (index % 2 !== 0) {
+                addCartas2 += `<ul class="lista" onclick="virarCarta(this)"><li class="back-face face">${imgs[index]}</li><li class="front-face face"><img src="../files/front.png"></li></ul>`;
+                baralho2.innerHTML = addCartas2;
+            }
+        }
+
+        if (qtdCartas === 14) {
+            if (index % 2 === 0) {
+                addCartas += `<ul class="lista" onclick="virarCarta(this)"><li class="back-face face">${imgs[index]}</li><li class="front-face face"><img src="../files/front.png"></li></ul>`;
+                baralho.innerHTML = addCartas;
+            } else if (index % 2 !== 0) {
+                addCartas2 += `<ul class="lista" onclick="virarCarta(this)"><li class="back-face face">${imgs[index]}</li><li class="front-face face"><img src="../files/front.png"></li></ul>`;
+                baralho2.innerHTML = addCartas2;
+            }
+        }
 
         index++;
     }

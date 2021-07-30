@@ -20,10 +20,9 @@ h1 {
 .lista {
     display: flex;
     justify-content: center;
-    align-items: center;
-    margin: 0 auto;
+    margin: 0 6vw;
     display: relative;
-}
+}   
 
 li {
     width: 10vw;
@@ -64,7 +63,46 @@ img {
     display: flex;
     margin-top: 70px;
     height: 25vh;
+    margin: 70px auto;
+    justify-content: center;
+}
+
+.display2 {
+    display: flex;
+    height: 25vh;
+    margin: 70px auto;
+    justify-content: center;
 }
 
 
+@media (max-width: 600px) {
+    .display {
+        flex-direction: column;
+        height: auto;
+        margin-top: 0;
+    }
+
+    .lista {
+        margin: 90px 0;
+    }
+
+    .lista:first-child {
+        margin-top: 0;
+    }
+
+    li {
+        width: 117px;
+        height: 146px;
+    }
+    .display2 {
+        flex-direction: column;
+        height: auto;
+    }
+
+    .display2 .lista:first-child {
+        margin-top: 20px;
+    }
+
+
+}
 
