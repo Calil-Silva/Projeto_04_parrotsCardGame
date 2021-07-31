@@ -100,6 +100,7 @@ let parrot;
 let alter = [];
 let backFaceFirst;
 let frontFaceFirst;
+let k = 0;
 
 function virarCarta(elemento) {
     let parrot = elemento.querySelector("img");
@@ -116,6 +117,8 @@ function virarCarta(elemento) {
 
     setTimeout(desvirarCartas, 1000);
     cartasIguais();
+    k++;
+    setTimeout(voceVenceu, 500);
 }
 
 function desvirarCartas() {
@@ -153,5 +156,17 @@ function cartasIguais() {
     }
 }
 
+function voceVenceu() {
+    let controle = 0;
+    let acertou = document.querySelectorAll(".back-face");
+    for (let j = 0; j < acertou.length; j++) {
+      if (acertou[j].classList.contains("showFront")) {
+        controle++;
+      }
+    }
 
+    if (controle === acertou.length) {
+      alert(`Você venceu em ${k} joagadas!`);
+    }
+  }
 
