@@ -91,8 +91,8 @@ function darCartas() {
     }
 }
 
-darCartas();
 let ligarCronometro = setInterval(cronometro, 1000);
+darCartas();
 
 let myArray = [];
 let backFace;
@@ -119,7 +119,9 @@ function virarCarta(elemento) {
 
     setTimeout(desvirarCartas, 1000);
     cartasIguais();
+
     k++;
+    clicarRapido();
     setTimeout(voceVenceu, 500);
 }
 
@@ -145,18 +147,34 @@ function desvirarCartas() {
 }
 
 function cartasIguais() {
-    if (alter.length === 2) {
-        if (myArray[1] === myArray[0]) {
-            backFaceFirst.classList.remove("showFront");
-            frontFaceFirst.classList.remove("hideBack");
-            backFace.classList.remove("showFront");
-            frontFace.classList.remove("hideBack");
+    if (alter.length === 2 && myArray[1] === myArray[0]) {
+        backFaceFirst.classList.remove("showFront");
+        frontFaceFirst.classList.remove("hideBack");
+        backFace.classList.remove("showFront");
+        frontFace.classList.remove("hideBack");
+        alter = [];
+        myArray = [];
+        i = 0;
+    }
+}
+
+function clicarRapido() {
+    if (alter.length > 2) {
+        let tentativa = document.querySelectorAll(".back-face");
+        console.log(tentativa);
+        let tentativa2 = document.querySelectorAll(".front-face");
+
+        for (let p = 0; p < qtdCartas; p++) {
+            tentativa[p].classList.remove("showFront");
+            console.log(tentativa[p])
+            tentativa2[p].classList.remove("hideBack");
             alter = [];
             myArray = [];
             i = 0;
         }
     }
 }
+
 
 function voceVenceu() {
     let controle = 0;
@@ -176,6 +194,15 @@ function voceVenceu() {
             location.reload();
         } else {
             alert("Obrigado por jogar.");
+
+            let removerOnclick = document.querySelectorAll("ul");
+
+            for (let x = 0; x < qtdCartas; x++) {
+                removerOnclick[x].onclick = function() {
+                    return false;
+                }
+            }
+            
         }
     }
 }
