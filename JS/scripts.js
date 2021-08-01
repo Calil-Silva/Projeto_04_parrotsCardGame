@@ -92,6 +92,7 @@ function darCartas() {
 }
 
 darCartas();
+let ligarCronometro = setInterval(cronometro, 1000);
 
 let myArray = [];
 let backFace;
@@ -101,6 +102,7 @@ let alter = [];
 let backFaceFirst;
 let frontFaceFirst;
 let k = 0;
+let segundos = 0;
 
 function virarCarta(elemento) {
     let parrot = elemento.querySelector("img");
@@ -166,7 +168,17 @@ function voceVenceu() {
     }
 
     if (controle === acertou.length) {
-      alert(`Você venceu em ${k} joagadas!`);
+        clearInterval(ligarCronometro);
+      alert(`Você venceu em ${k} joagadas e em ${segundos - 1}s!`);
     }
+
   }
+
+  function cronometro() {
+    let tempo = document.querySelector(".cronometro");
+    tempo.innerHTML = `Tempo: ${segundos}s`;
+    segundos++;
+  }
+
+  
 

@@ -1,3 +1,7 @@
+* {
+    box-sizing: border-box;
+}
+
 body {
     font-family: 'Roboto', sans-serif;
     background-color: rgb(238, 249, 191);
@@ -72,6 +76,21 @@ img {
     height: 25vh;
     margin: 70px auto;
     justify-content: center;
+}
+
+.cronometro {
+    background-color: coral;
+    height: 50px;
+    width: 120px;
+    border-radius: 20px;
+    color: cyan;
+    font-size: 18px;
+    margin: 0 auto;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid black;
 }
 
 
