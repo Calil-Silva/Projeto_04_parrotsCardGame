@@ -161,24 +161,30 @@ function cartasIguais() {
 function voceVenceu() {
     let controle = 0;
     let acertou = document.querySelectorAll(".back-face");
+
     for (let j = 0; j < acertou.length; j++) {
-      if (acertou[j].classList.contains("showFront")) {
-        controle++;
-      }
+        if (acertou[j].classList.contains("showFront")) {
+            controle++;
+        }
     }
 
-    if (controle === acertou.length) {
+    if (controle === acertou.length && controle === qtdCartas) {
         clearInterval(ligarCronometro);
-      alert(`Você venceu em ${k} joagadas e em ${segundos - 1}s!`);
+        alert(`Você venceu em ${k} joagadas e em ${segundos - 1}s!`);
+        let reinicializar = prompt("Gostaria de reiniciar a partida?");
+        if (reinicializar === "Sim" || reinicializar === "sim") {
+            location.reload();
+        } else {
+            alert("Obrigado por jogar.");
+        }
     }
+}
 
-  }
-
-  function cronometro() {
+function cronometro() {
     let tempo = document.querySelector(".cronometro");
     tempo.innerHTML = `Tempo: ${segundos}s`;
     segundos++;
-  }
+}
 
-  
+
 
