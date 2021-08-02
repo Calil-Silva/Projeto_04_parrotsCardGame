@@ -1,8 +1,9 @@
-let qtdCartas = Number(prompt("Quantas cartas quer jogar?"));
+let cardsAmount = Number(prompt("Quantas cards quer jogar?"));
 let i = 0;
 let index = 0;
-let addCartas = "";
-let addCartas2 = "";
+let addCardsFirstQueue = "";
+let addCardsSecondQueue = "";
+let k = 0;
 
 function comparador() {
     return Math.random() - 0.5;
@@ -10,20 +11,20 @@ function comparador() {
 
 let imgs = [];
 
-while (qtdCartas < 4 || qtdCartas > 14 || qtdCartas % 2 !== 0) {
-    qtdCartas = Number(prompt("Quantas cartas quer jogar?"));
+while (cardsAmount < 4 || cardsAmount > 14 || cardsAmount % 2 !== 0) {
+    cardsAmount = Number(prompt("Quantas cards quer jogar?"));
 }
 
-function darCartas() {
-    let cartas = ["bobrossparrot", "explodyparrot", "fiestaparrot", "metalparrot", "revertitparrot", "tripletsparrot", "unicornparrot"];
-    cartas.sort(comparador);
+function sortCards() {
+    let cards = ["bobrossparrot", "explodyparrot", "fiestaparrot", "metalparrot", "revertitparrot", "tripletsparrot", "unicornparrot"];
+    cards.sort(comparador);
 
-    let baralho = document.querySelector(".display");
-    let baralho2 = document.querySelector(".display2");
+    let firstQueue = document.querySelector(".firstQueue");
+    let secondQueue = document.querySelector(".secondQueue");
 
-    while (i < (qtdCartas / 2)) {
-        imgs.push(`<img src="../files/${cartas[i]}.gif" alt="${cartas[i]}">`);
-        imgs.push(`<img src="../files/${cartas[i]}.gif" alt="${cartas[i]}">`);
+    while (i < (cardsAmount / 2)) {
+        imgs.push(`<img src="../files/${cards[i]}.gif" alt="${cards[i]}">`);
+        imgs.push(`<img src="../files/${cards[i]}.gif" alt="${cards[i]}">`);
 
         i++;
     }
@@ -32,58 +33,58 @@ function darCartas() {
 
     while (index < imgs.length) {
 
-        if (qtdCartas === 4) {
-            addCartas += `<ul class="lista" onclick="virarCarta(this)"><li class="back-face face">${imgs[index]}</li><li class="front-face face"><img src="../files/front.png"></li></ul>`;
-            baralho.innerHTML = addCartas;
+        if (cardsAmount === 4) {
+            addCardsFirstQueue += `<ul class="list" onclick="turnOverCards(this)"><li class="back-face face">${imgs[index]}</li><li class="front-face face"><img src="../files/front.png"></li></ul>`;
+            firstQueue.innerHTML = addCardsFirstQueue;
         }
 
-        if (qtdCartas === 6) {
+        if (cardsAmount === 6) {
             if (index % 2 === 0) {
-                addCartas += `<ul class="lista" onclick="virarCarta(this)"><li class="back-face face">${imgs[index]}</li><li class="front-face face"><img src="../files/front.png"></li></ul>`;
-                baralho.innerHTML = addCartas;
+                addCardsFirstQueue += `<ul class="list" onclick="turnOverCards(this)"><li class="back-face face">${imgs[index]}</li><li class="front-face face"><img src="../files/front.png"></li></ul>`;
+                firstQueue.innerHTML = addCardsFirstQueue;
             } else if (index % 2 !== 0) {
-                addCartas2 += `<ul class="lista" onclick="virarCarta(this)"><li class="back-face face">${imgs[index]}</li><li class="front-face face"><img src="../files/front.png"></li></ul>`;
-                baralho2.innerHTML = addCartas2;
+                addCardsSecondQueue += `<ul class="list" onclick="turnOverCards(this)"><li class="back-face face">${imgs[index]}</li><li class="front-face face"><img src="../files/front.png"></li></ul>`;
+                secondQueue.innerHTML = addCardsSecondQueue;
             }
         }
 
-        if (qtdCartas === 8) {
+        if (cardsAmount === 8) {
             if (index % 2 === 0) {
-                addCartas += `<ul class="lista" onclick="virarCarta(this)"><li class="back-face face">${imgs[index]}</li><li class="front-face face"><img src="../files/front.png"></li></ul>`;
-                baralho.innerHTML = addCartas;
+                addCardsFirstQueue += `<ul class="list" onclick="turnOverCards(this)"><li class="back-face face">${imgs[index]}</li><li class="front-face face"><img src="../files/front.png"></li></ul>`;
+                firstQueue.innerHTML = addCardsFirstQueue;
             } else if (index % 2 !== 0) {
-                addCartas2 += `<ul class="lista" onclick="virarCarta(this)"><li class="back-face face">${imgs[index]}</li><li class="front-face face"><img src="../files/front.png"></li></ul>`;
-                baralho2.innerHTML = addCartas2;
+                addCardsSecondQueue += `<ul class="list" onclick="turnOverCards(this)"><li class="back-face face">${imgs[index]}</li><li class="front-face face"><img src="../files/front.png"></li></ul>`;
+                secondQueue.innerHTML = addCardsSecondQueue;
             }
         }
 
-        if (qtdCartas === 10) {
+        if (cardsAmount === 10) {
             if (index % 2 === 0) {
-                addCartas += `<ul class="lista" onclick="virarCarta(this)"><li class="back-face face">${imgs[index]}</li><li class="front-face face"><img src="../files/front.png"></li></ul>`;
-                baralho.innerHTML = addCartas;
+                addCardsFirstQueue += `<ul class="list" onclick="turnOverCards(this)"><li class="back-face face">${imgs[index]}</li><li class="front-face face"><img src="../files/front.png"></li></ul>`;
+                firstQueue.innerHTML = addCardsFirstQueue;
             } else if (index % 2 !== 0) {
-                addCartas2 += `<ul class="lista" onclick="virarCarta(this)"><li class="back-face face">${imgs[index]}</li><li class="front-face face"><img src="../files/front.png"></li></ul>`;
-                baralho2.innerHTML = addCartas2;
+                addCardsSecondQueue += `<ul class="list" onclick="turnOverCards(this)"><li class="back-face face">${imgs[index]}</li><li class="front-face face"><img src="../files/front.png"></li></ul>`;
+                secondQueue.innerHTML = addCardsSecondQueue;
             }
         }
 
-        if (qtdCartas === 12) {
+        if (cardsAmount === 12) {
             if (index % 2 === 0) {
-                addCartas += `<ul class="lista" onclick="virarCarta(this)"><li class="back-face face">${imgs[index]}</li><li class="front-face face"><img src="../files/front.png"></li></ul>`;
-                baralho.innerHTML = addCartas;
+                addCardsFirstQueue += `<ul class="list" onclick="turnOverCards(this)"><li class="back-face face">${imgs[index]}</li><li class="front-face face"><img src="../files/front.png"></li></ul>`;
+                firstQueue.innerHTML = addCardsFirstQueue;
             } else if (index % 2 !== 0) {
-                addCartas2 += `<ul class="lista" onclick="virarCarta(this)"><li class="back-face face">${imgs[index]}</li><li class="front-face face"><img src="../files/front.png"></li></ul>`;
-                baralho2.innerHTML = addCartas2;
+                addCardsSecondQueue += `<ul class="list" onclick="turnOverCards(this)"><li class="back-face face">${imgs[index]}</li><li class="front-face face"><img src="../files/front.png"></li></ul>`;
+                secondQueue.innerHTML = addCardsSecondQueue;
             }
         }
 
-        if (qtdCartas === 14) {
+        if (cardsAmount === 14) {
             if (index % 2 === 0) {
-                addCartas += `<ul class="lista" onclick="virarCarta(this)"><li class="back-face face">${imgs[index]}</li><li class="front-face face"><img src="../files/front.png"></li></ul>`;
-                baralho.innerHTML = addCartas;
+                addCardsFirstQueue += `<ul class="list" onclick="turnOverCards(this)"><li class="back-face face">${imgs[index]}</li><li class="front-face face"><img src="../files/front.png"></li></ul>`;
+                firstQueue.innerHTML = addCardsFirstQueue;
             } else if (index % 2 !== 0) {
-                addCartas2 += `<ul class="lista" onclick="virarCarta(this)"><li class="back-face face">${imgs[index]}</li><li class="front-face face"><img src="../files/front.png"></li></ul>`;
-                baralho2.innerHTML = addCartas2;
+                addCardsSecondQueue += `<ul class="list" onclick="turnOverCards(this)"><li class="back-face face">${imgs[index]}</li><li class="front-face face"><img src="../files/front.png"></li></ul>`;
+                secondQueue.innerHTML = addCardsSecondQueue;
             }
         }
 
@@ -91,127 +92,123 @@ function darCartas() {
     }
 }
 
-let ligarCronometro = setInterval(cronometro, 1000);
-darCartas();
+let setTimer = setInterval(timer, 1000);
+sortCards();
 
-let myArray = [];
+let arrayCards = [];
 let backFace;
 let frontFace;
 let parrot;
 let alter = [];
-let backFaceFirst;
-let frontFaceFirst;
-let k = 0;
-let segundos = 0;
+let backFaceFirstSelectedCard;
+let frontFaceFirstSelectedCard;
+let seconds = 1;
+let removeOnclick = document.querySelectorAll("ul");
+let control;
+let myVar;
 
-function virarCarta(elemento) {
+function turnOverCards(elemento) {
     let parrot = elemento.querySelector("img");
     let parrotPai = parrot.parentNode.parentNode;
-    let tituloCards = parrot.alt;
+    let tituloIMG = parrot.alt;
 
-    myArray.push(parrotPai);
-    alter.push(tituloCards);
+    arrayCards.push(parrotPai);
+    alter.push(tituloIMG);
 
     backFace = elemento.querySelector(".back-face");
     frontFace = elemento.querySelector(".front-face");
-    backFace.classList.add("showFront");
-    frontFace.classList.add("hideBack");
+    backFace.classList.add("show");
+    frontFace.classList.add("hide");
 
-    setTimeout(desvirarCartas, 1000);
-    cartasIguais();
-
+    setTimeout(hideBack, 1000);
+    sameULCardClick();
+    myVar = setTimeout(setOnclick, 1000);
     k++;
-    clicarRapido();
-    setTimeout(voceVenceu, 500);
+    setTimeout(endGame, 100);
+    removeClick()
 }
 
-function desvirarCartas() {
+function hideBack() {
+    if (alter.length === 2  ) {
+        if (alter[1] === alter[0] && arrayCards[1] !== arrayCards[0]) {
+            alter = [];
+            arrayCards = [];
+
+        } else if (alter[1] !== alter[0]) {
+            backFaceFirstSelectedCard = arrayCards[0].querySelector(".back-face");
+            frontFaceFirstSelectedCard = arrayCards[0].querySelector(".front-face");
+
+            backFaceFirstSelectedCard.classList.remove("show");
+            frontFaceFirstSelectedCard.classList.remove("hide");
+            backFace.classList.remove("show");
+            frontFace.classList.remove("hide");
+            alter = [];
+            arrayCards = [];
+        }
+    }
+}
+
+function removeClick() {
     if (alter.length === 2) {
-        if (alter[1] === alter[0] && myArray[1] !== myArray[0]) {
-            alter = [];
-            myArray = [];
-            i = 0;
-        } else if (alter[1] !== alter[0] || myArray[1] === myArray[0]) {
-            backFaceFirst = myArray[0].querySelector(".back-face");
-            frontFaceFirst = myArray[0].querySelector(".front-face");
-
-            backFaceFirst.classList.remove("showFront");
-            frontFaceFirst.classList.remove("hideBack");
-            backFace.classList.remove("showFront");
-            frontFace.classList.remove("hideBack");
-            alter = [];
-            myArray = [];
-            i = 0;
+        for (let x = 0; x < cardsAmount; x++) {
+            removeOnclick[x].onclick = '';
         }
     }
 }
 
-function cartasIguais() {
-    if (alter.length === 2 && myArray[1] === myArray[0]) {
-        backFaceFirst.classList.remove("showFront");
-        frontFaceFirst.classList.remove("hideBack");
-        backFace.classList.remove("showFront");
-        frontFace.classList.remove("hideBack");
+function setOnclick () {
+    if (control < cardsAmount) {
+        for (let t = 0; t < cardsAmount; t++) {
+            removeOnclick[t].onclick = function () {
+                turnOverCards(this);
+            }
+        }
+    }
+}
+
+//Esta função "sameULCardClick" executa imediatamente, diferentemente da função "hideback", que tem um delay de 1s. Ela impede que o algoritmo reconheça dois cliques na mesma carta como um acerto.
+function sameULCardClick() {
+    if (alter.length === 2 && arrayCards[1] === arrayCards[0]) {
+        backFaceFirstSelectedCard.classList.remove("show");
+        frontFaceFirstSelectedCard.classList.remove("hide");
+        backFace.classList.remove("show");
+        frontFace.classList.remove("hide");
         alter = [];
-        myArray = [];
-        i = 0;
+        arrayCards = [];
     }
 }
 
-function clicarRapido() {
-    if (alter.length > 2) {
-        let tentativa = document.querySelectorAll(".back-face");
-        console.log(tentativa);
-        let tentativa2 = document.querySelectorAll(".front-face");
+function endGame() {
+    control = 0;
+    let points = document.querySelectorAll(".back-face");
 
-        for (let p = 0; p < qtdCartas; p++) {
-            tentativa[p].classList.remove("showFront");
-            console.log(tentativa[p])
-            tentativa2[p].classList.remove("hideBack");
-            alter = [];
-            myArray = [];
-            i = 0;
-        }
-    }
-}
-
-
-function voceVenceu() {
-    let controle = 0;
-    let acertou = document.querySelectorAll(".back-face");
-
-    for (let j = 0; j < acertou.length; j++) {
-        if (acertou[j].classList.contains("showFront")) {
-            controle++;
+    for (let j = 0; j < points.length; j++) {
+        if (points[j].classList.contains("show")) {
+            control++;
         }
     }
 
-    if (controle === acertou.length && controle === qtdCartas) {
-        clearInterval(ligarCronometro);
-        alert(`Você venceu em ${k} joagadas e em ${segundos - 1}s!`);
-        let reinicializar = prompt("Gostaria de reiniciar a partida?");
-        if (reinicializar === "Sim" || reinicializar === "sim") {
+    if (control === points.length && control === cardsAmount) {
+        clearInterval(setTimer);
+        alert(`Você venceu em ${k} joagadas e em ${seconds - 1}s!`);
+        let restart = prompt("Gostaria de reiniciar a partida?");
+        if (restart === "Sim" || restart === "sim" || restart === "s" || restart === "SIM") {
             location.reload();
         } else {
             alert("Obrigado por jogar.");
-
-            let removerOnclick = document.querySelectorAll("ul");
-
-            for (let x = 0; x < qtdCartas; x++) {
-                removerOnclick[x].onclick = function() {
-                    return false;
-                }
-            }
-            
         }
     }
 }
 
-function cronometro() {
-    let tempo = document.querySelector(".cronometro");
-    tempo.innerHTML = `Tempo: ${segundos}s`;
-    segundos++;
+function timer() {
+    let time = document.querySelector(".timer");
+    time.innerHTML = `time: ${seconds}s`;
+    seconds++;
 }
+
+
+
+
 
 
 
